@@ -5,19 +5,19 @@ import pkg from './package.json';
 // noinspection JSUnusedGlobalSymbols
 export default [
     {
-        input: 'src/main.js',
+        input: 'src/index.js',
         output: {
             file: pkg.browser,
             format: 'umd'
         },
-        name: 'pixiBidiPlugin',
+        name: 'PixiBidiPlugin',
         plugins: [
             resolve(),
-            commonjs()
+            commonjs(),
         ]
     },
     {
-        input: 'src/main.js',
+        input: 'src/index.js',
         external: [],
         output: [
             {
