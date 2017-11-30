@@ -2,10 +2,6 @@
   "name": "pixi-bidi-plugin",
   "version": "0.0.1",
   "description": "Pixi.js plugin for bidirectional text",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/matan129/pixi-bidi-plugin.git"
@@ -21,5 +17,25 @@
   "bugs": {
     "url": "https://github.com/matan129/pixi-bidi-plugin/issues"
   },
-  "homepage": "https://github.com/matan129/pixi-bidi-plugin#readme"
+  "homepage": "https://github.com/matan129/pixi-bidi-plugin#readme",
+  "devDependencies": {
+    "rollup": "^0.52.0",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "peerDependencies": {
+    "pixi.js": "^4.6.2"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "node test/test.js",
+    "pretest": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/pixiBidiPlugin.cjs.js",
+  "module": "dist/pixiBidiPlugin.esm.js",
+  "browser": "dist/pixiBidiPlugin.umd.js"
 }
