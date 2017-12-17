@@ -3,12 +3,12 @@ import {getPlaygroundDiv} from "./playground";
 
 export function patchPixiText() {
     const originalDrawLetterSpacing = PIXI.Text.prototype.drawLetterSpacing;
-    PIXI.Text.prototype.drawLetterSpacing = function() {
+    PIXI.Text.prototype.drawLetterSpacing = function(text, x, ...extras) {
         if (this.style.forceRtl) {
-            arguments[1] = this.canvas.width - arguments[1]
+            x = this.canvas.width - x
         }
 
-        return originalDrawLetterSpacing.apply(this, arguments);
+        return originalDrawLetterSpacing.apply(this, text, x, ...extras);
     };
 
     const originalDestroy = PIXI.Text.prototype.destroy;

@@ -9,7 +9,12 @@ export function initPixiBidiPlugin() {
 export function createRtlCanvas(attributes) {
     const canvas = document.createElement('canvas');
 
-    for(let [name, value] of Object.entries(Object.assign({}, attributes, { dir: 'rtl' }))) {
+    for (let [name, value] of Object.entries({
+        ...attributes,
+        ...{
+            dir: 'rtl'
+        }
+    })) {
         canvas.setAttribute(name, value);
     }
 
